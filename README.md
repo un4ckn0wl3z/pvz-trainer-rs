@@ -35,6 +35,9 @@ features = [
 ## 📸 Screenshots
 ![Trainer](screenshots.png)
 
+## ▶️ Demo
+https://youtu.be/bWo2Mm4OV5E
+
 ## 📦 Building
 To build the project, simply run:
 ```bash
