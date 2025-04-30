@@ -74,7 +74,7 @@ impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("Plants vs Zombies +4 Trainer");
-            ui.label("Sample +4 Trainer for Plants vs Zombies, developed in Rust.");
+            ui.label("Simple +4 Trainer for Plants vs Zombies, developed in Rust.");
             global_theme_preference_buttons(ui);
             ui.image(egui::include_image!("../assets/pvz.png"))
                 .on_hover_text_at_pointer("Plants vs Zombies +4 Trainer");
