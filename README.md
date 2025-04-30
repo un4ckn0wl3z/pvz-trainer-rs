@@ -1,6 +1,6 @@
 # 🌻 Plants vs Zombies +4 Trainer
 
-Sample +4 Trainer for **Plants vs Zombies**, developed in **Rust**.  
+Simple +4 Trainer for **Plants vs Zombies**, developed in **Rust**.  
 This trainer allows you to modify in-game values like sun, coins, and more!
 
 ## ✨ Features
