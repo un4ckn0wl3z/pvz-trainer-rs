@@ -5,7 +5,7 @@ use windows_sys::{Win32::UI::WindowsAndMessaging::*, core::*};
 
 pub struct TrainerStates {
     no_cool_down_state: bool,
-    auto_collect_sun: bool,
+    auto_collect_sun_state: bool,
     game_process: Process,
     game_module: Module,
 }
@@ -40,7 +40,7 @@ impl TrainerStates {
 
         Self {
             no_cool_down_state: false,
-            auto_collect_sun: false,
+            auto_collect_sun_state: false,
             game_process,
             game_module,
         }
@@ -87,7 +87,7 @@ impl TrainerStates {
     }
 
     pub fn auto_collect_sun(&mut self, toggle: bool) -> Result<bool, String> {
-        if self.auto_collect_sun == toggle {
+        if self.auto_collect_sun_state == toggle {
             return Ok(toggle);
         }
 
@@ -119,7 +119,7 @@ impl TrainerStates {
             };
         }
 
-        self.auto_collect_sun = toggle;
+        self.auto_collect_sun_state = toggle;
         Ok(toggle)
     }
 
