@@ -1,5 +1,4 @@
-# .github/workflows/windows-msvc-build.yml
-name: Windows MSVC Build
+name: Build for Windows
 
 on:
   push:
@@ -8,17 +7,24 @@ on:
     branches: [ main ]
 
 jobs:
-  build-msvc:
-    runs-on: windows-latest
+  build-windows:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        target: [x86_64-pc-windows-gnu]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Rust
-        uses: actions/setup-rust@v1
-        with:
-          target: x86_64-pc-windows-msvc
+      - name: Install Rust target
+        run: rustup target add ${{ matrix.target }}
 
-      - name: Build
-        run: cargo build --release --target x86_64-pc-windows-msvc
+      - name: Install mingw for cross-compiling
+        run: |
+          sudo apt update
+          sudo apt install -y mingw-w64
+
+      - name: Build project for ${{ matrix.target }}
+        run: cargo build --release --target=${{ matrix.target }}
